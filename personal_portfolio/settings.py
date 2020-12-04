@@ -124,3 +124,8 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
+#This code is to indicate to Django that must be use the local settings instead the settings used to work in an external server
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file. You must be on production")
